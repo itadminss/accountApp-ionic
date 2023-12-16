@@ -1,0 +1,7 @@
+{
+  "name": "accountApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
