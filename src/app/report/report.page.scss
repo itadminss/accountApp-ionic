@@ -1,0 +1,35 @@
+ion-toolbar {
+    --ion-color-base: #495057; /* Change base color of toolbar */
+  }
+  
+  .content {
+    --background: #f8f9fa; /* Change background color of content */
+  }
+  
+  .label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+  }
+  
+  .search-button {
+    margin-top: 8px;
+  }
+  
+  .item {
+    border-bottom: 1px solid #ced4da; /* Add separator between items */
+  }
+  
+  .date {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .red-font {
+    color: red;
+  }

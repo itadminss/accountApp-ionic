@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-icon name="chevron-back-circle-outline" size="large" color="light" (click)="dismiss()" slot="start"></ion-icon>
+    <ion-title class="ion-text-center">เพิ่มรายรับ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form action="">
+    <ion-list>
+      <ion-item>
+        <ion-select label="เลือกประภทรายรับ"  class="ion-text-center" label-placement="stacked" name="incometypeid" [(ngModel)]="incometypeid">
+          <ion-select-option *ngFor="let item of items " value="{{ item.incometypeid }}">{{ item.incometype }}</ion-select-option>
+ 
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="จำนวนเงิน" labelPlacement="stacked" class="ion-text-center" type="number" name="amount" [(ngModel)]="amount"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <!-- <ion-input label="วันที่ได้รับ" labelPlacement="stacked" placeholder="วว/ดด/ปปปป"  ></ion-input> -->
+        <ion-input label="วันที่ได้รับ" labelPlacement="stacked" id="datePopover" class="ion-text-center"   value="{{date | date:'dd/MM/yyyy'}}"></ion-input>
+        <ion-popover trigger="datePopover">
+          <ng-template >
+            <ion-datetime  class="ion-text-center" [(ngModel)]="date" name="date" (ngModelChange)="onChange()"><ion-icon name="calendar"></ion-icon></ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </ion-item>
+      <ion-button slot="end"  shape="round" fill="outline" color="success" (click)="onSave()"  > <ion-icon slot="start" name="save"></ion-icon>บันทึก</ion-button>
+    
+       
+  
+      
+
+    </ion-list>
+  
+  </form>
+ 
+</ion-content>

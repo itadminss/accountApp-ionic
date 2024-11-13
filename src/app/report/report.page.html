@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="chevron-back-circle-outline" size="large" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" color="light">สรุปรายรับรายจ่าย</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close" size="large" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col size="auto" class="ion-text-center">
+        <ion-label class="label">วันที่เริ่มต้น</ion-label>
+        <ion-input id="date1" value="{{ date1 | date:'dd/MM/yyyy' }}" class="input"></ion-input>
+        <ion-popover trigger="date1"> 
+          <ng-template>
+            <ion-datetime [(ngModel)]="date1" name="date1" (ngModelChange)="onChangeDate1()"></ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </ion-col>
+      <ion-col size="auto" class="ion-text-center">
+        <ion-label class="label">วันที่สิ้นสุด</ion-label>
+        <ion-input id="date2" value="{{ date2 | date:'dd/MM/yyyy' }}" class="input"></ion-input>
+        <ion-popover trigger="date2"> 
+          <ng-template>
+            <ion-datetime [(ngModel)]="date2" name="date2" (ngModelChange)="onChangeDate2()"></ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </ion-col>
+      <ion-col size="auto" class="ion-text-center">
+        <ion-button fill="clear" color="success" (click)="onSearch()" class="search-button">
+          <ion-icon name="search"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let item of items" class="item">
+            <ion-label [ngClass]="{ 'red-font': item.amount < 0 }">
+              <p  >วันที่ {{ item.date | date:'dd/MM/yyyy' }}</p>
+              <p  >รายการ {{ item.name }}</p>
+              <p  >จำนวนเงิน {{ item.amount }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-end>
+      <ion-col size="auto" >
+        <p>ผลรวมรายการ : {{ sumOfItems }}</p>
+      </ion-col>
+    </ion-row>
+   
+  </ion-grid>
+</ion-content>

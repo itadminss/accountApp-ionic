@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-icon name="chevron-back-circle-outline" size="large" color="light" (click)="dismiss()" slot="start"></ion-icon>
+    <ion-title class="ion-text-center">บันทึกรายจ่าย</ion-title>
+    <!-- <ion-icon name="save" slot="end"  color="primary"size="large"></ion-icon>  -->
+    
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <ion-item>
+    <ion-item-sliding *ngFor="let item of data"  >
+      <ion-item>
+        <ion-label > 
+          <p>วันที่ได้รับ {{item.expensedate}}</p>
+          <p>รายการ {{item.expensetype}}</p>
+          <p>จำยนวนเงิน {{item.amount }}</p> 
+        </ion-label>
+      </ion-item>
+  
+      <ion-item-options side="end">
+        <ion-item-option (click)="onEdit(item)">
+          <ion-icon slot="start" name="create"></ion-icon>
+          Edit
+        </ion-item-option >
+        <ion-item-option color="danger" (click)="onDelete(item)">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-item>
+
+ <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="addExpenseModal()">
+  <ion-fab-button color="success">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+
+</ion-fab>
+
+</ion-content>
+

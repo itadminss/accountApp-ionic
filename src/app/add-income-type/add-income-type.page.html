@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-icon name="chevron-back-circle-outline" size="large" color="light" (click)="dismiss()" slot="start"></ion-icon>
+    <ion-title class="ion-text-center" color="light">เพิ่มประเภทรายรับ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  
+  <!-- ดึงข้อมูลจาก tbincome -->
+  <form action="">
+    <ion-list>
+      <ion-item>
+        <ion-input name="incometype" [(ngModel)]="incometype" label="ประเภทรายรับ" placeholder="ใส่ข้อมูลประเภท"></ion-input>
+      </ion-item>
+
+      
+      
+    </ion-list>
+    <ion-button expand="block" (click)="onSave()">บันทึก</ion-button> 
+
+  </form>
+</ion-content>
